@@ -28,4 +28,28 @@ $delcontact=new contactmanager();
 $delcontact->delete($id);
 echo "Utilisateur '$id' supprimé \n";
 }
+public function help():void {
+echo "Commandes disponible : \n 
+'liste' : affiche tous les utilisateurs et leur ID.\n 
+'detail + ID' : affiche un l'utilisateur selectionné. \n 
+'ajouter + nom, email, tel' : crée un nouvel utilisateur. \n
+'aide' : affiche l'aide. \n
+'effacer + ID' : supprime l'utilisateur selectionné. \n
+'modifier' + ID : modifie les données de l'utilisateur\n\n";
+}
+public function modify(int $id):void {
+$modcontact=new contactmanager();
+$oldcontact = $modcontact->findbyid($id);
+if ($oldcontact==false)
+return; 
+$newname=readline("quel est le nouveau nom ?");
+$newemail=readline("quel est le nouvel email ?");
+$newphone=readline("quel est le nouvel numero ?");
+
+$oldcontact->setname($newname);
+$oldcontact->setemail($newemail);
+$oldcontact->setphone($newphone);
+
+$modcontact->modify($oldcontact);
+}
 } 

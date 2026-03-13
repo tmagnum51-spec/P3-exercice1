@@ -51,6 +51,13 @@ $db = DBConnect::getPDO();
 $req = $db->prepare ('DELETE FROM `contact` WHERE user_id = :id');
 $req->execute(['id'=>$id]);
 }
+
+public function modify($modcontact) {
+$db = DBConnect::getPDO();
+$req = $db->prepare("UPDATE `contact` SET `name`=:name, `email`=:email, `phone_number`=:phone_number WHERE user_id = :id");
+$req->execute(['id'=>$modcontact->getid(), 'name'=>$modcontact->getname(), 'email'=>$modcontact->getemail(), 'phone_number'=>$modcontact->getphone()]);
+
+}
 }
 
 ?>

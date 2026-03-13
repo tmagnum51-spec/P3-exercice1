@@ -40,7 +40,7 @@ Public function setphone(?string $contactphone):void
 
 public function toString(): string
 {
-    return 'contact n°' .' ' . $this->userid . " : " . "Nom : " . $this->contactname . " " . "Email : " . $this->contactemail . "Tel : " . $this->contactphone;
+    return 'contact n°' .' ' . $this->userid . " : " . "Nom : " . $this->contactname . " " . "Email : " . $this->contactemail . " " . "Tel : " . $this->contactphone;
 
 }
 }
