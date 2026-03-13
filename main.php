@@ -37,6 +37,10 @@ $commande->help();  }
 elseif (preg_match('/^(modifier|modify) (\d+)$/', $line, $match)){
 $commande->modify((int)($match[2]));
 }
+else {
+    echo "Cette commande n'existe pas, tapez aide pour voir les commande valides\n
+This command does not exist, type help to see valid commands\n\n";
+}
 }
  //   $monmanager = new contactmanager();
  //   $liste = $monmanager->findall();

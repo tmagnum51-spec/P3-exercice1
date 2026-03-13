@@ -30,12 +30,18 @@ echo "Utilisateur '$id' supprimé \n";
 }
 public function help():void {
 echo "Commandes disponible : \n 
-'liste/list' : affiche tous les utilisateurs et leur ID.\n 
-'detail + ID' : affiche un l'utilisateur selectionné. \n 
-'ajouter/add + nom, email, tel' : crée un nouvel utilisateur. \n
-'aide/help' : affiche l'aide. \n
-'effacer/delete + ID' : supprime l'utilisateur selectionné. \n
-'modifier/modify' + ID : modifie les données de l'utilisateur\n\n";
+'liste' : affiche tous les utilisateurs et leur ID.\n
+'list': displays all users and their IDs.\n\n
+'detail + ID' : affiche un l'utilisateur selectionné. \n
+'detail + ID': displays selected user.\n\n 
+'ajouter + nom, email, tel' : crée un nouvel utilisateur. \n
+'add + name, email, tel': creates new user.\n\n
+'aide' : affiche la liste des commandes. \n
+'help': displays helpcommand list. \n\n
+'effacer + ID' : supprime l'utilisateur selectionné. \n
+'delete + ID': deletes selected user. \n\n
+'modifier' + ID : modifie les données de l'utilisateur selectionné.\n
+'modify + ID': modifies selected user details \n\n";
 }
 public function modify(int $id):void {
 $modcontact=new contactmanager();
