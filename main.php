@@ -24,7 +24,10 @@ $newcontact->setphone($match[3]);
 $manager->create($newcontact);
 echo "nouvel utilisateur créé \n";
 }
+elseif (preg_match('/^delete (\d+)$/', $line, $match)){
+$commande->delete((int)($match[1]));
 
+}
 }
  //   $monmanager = new contactmanager();
  //   $liste = $monmanager->findall();

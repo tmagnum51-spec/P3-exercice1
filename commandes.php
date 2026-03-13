@@ -23,4 +23,9 @@ $newcontact = new contactmanager();
 
 
 }
+public function delete(int $id): void {
+$delcontact=new contactmanager();
+$delcontact->delete($id);
+echo "Utilisateur '$id' supprimé \n";
+}
 } 

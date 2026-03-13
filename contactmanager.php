@@ -45,7 +45,12 @@ $req = $db->prepare ("INSERT INTO `contact`(`name`, `email`, `phone_number`) VAL
 $req->execute(['name'=>$newcontact->getname(), 'email'=>$newcontact->getemail(), 'phone_number'=>$newcontact->getphone()]); 
 }
 
-
+public function delete($id)
+{
+$db = DBConnect::getPDO();
+$req = $db->prepare ('DELETE FROM `contact` WHERE user_id = :id');
+$req->execute(['id'=>$id]);
+}
 }
 
 ?>
