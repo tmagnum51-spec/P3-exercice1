@@ -1,13 +1,13 @@
 <?php
-
+//declaration de la classe contact
 class contact
 {
-
+//declaration des variables du contact
 private int $userid;
 private string $contactname;
 private string $contactemail;
 private string $contactphone;
-
+//accesseur
 public function getID(): ?int
 {
 return $this->userid;
@@ -19,7 +19,7 @@ public function getemail(): ?string
 public function getphone(): ?string
 {return $this->contactphone;}
 
-
+//mutateurs
 Public function setID(?int $userid):void
 {
     $this->userid = $userid;
@@ -37,7 +37,7 @@ Public function setphone(?string $contactphone):void
 {
     $this->contactphone = $contactphone;
     }
-
+//concatenation en string
 public function toString(): string
 {
     return 'contact n°' .' ' . $this->userid . " : " . "Nom : " . $this->contactname . " " . "Email : " . $this->contactemail . " " . "Tel : " . $this->contactphone;
