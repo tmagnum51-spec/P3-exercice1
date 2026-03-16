@@ -11,16 +11,16 @@ Class ContactManager
         $db = DBConnect::getPDO();
 
         $req = $db->query('SELECT * FROM `contact`');
-        $contactall = $req->fetchall();
+        $contactAll = $req->fetchall();
 
-        foreach ($contactall as $ligne) {
-            $uncon = new contact();
-            $uncon->setID($ligne['user_id'] );
-            $uncon->setname($ligne['name']);
-            $uncon->setemail($ligne['email']);
-            $uncon->setphone($ligne['phone_number']);
+        foreach ($contactAll as $line) {
+            $oneCon = new Contact();
+            $oneCon->setID($line['user_id'] );
+            $oneCon->setName($line['name']);
+            $oneCon->setEmail($line['email']);
+            $oneCon->setPhone($line['phone_number']);
 
-            $contacts[] = $uncon;
+            $contacts[] = $oneCon;
 
         }
 
@@ -32,19 +32,19 @@ public function findbyid(int $id) {
 
         $req = $db->prepare('SELECT * FROM `contact` WHERE user_id = :id');
         $req->execute(['id' =>$id]);
-    $contactdetail = $req->fetch();
+    $contactDetail = $req->fetch();
     $conta = new contact;
-        $conta->setID($contactdetail['user_id']);
-        $conta->setname($contactdetail['name']);
-        $conta->setemail($contactdetail['email']);
-        $conta->setphone($contactdetail['phone_number']);
+        $conta->setID($contactDetail['user_id']);
+        $conta->setName($contactDetail['name']);
+        $conta->setEmail($contactDetail['email']);
+        $conta->setPhone($contactDetail['phone_number']);
         return $conta;
 }
 //gestion de la commande ajouter
-public function create($newcontact) {
+public function create($newContact) {
     $db = DBConnect::getPDO();
         $req = $db->prepare ("INSERT INTO `contact`(`name`, `email`, `phone_number`) VALUES (:name, :email, :phone_number)");
-        $req->execute(['name'=>$newcontact->getname(), 'email'=>$newcontact->getemail(), 'phone_number'=>$newcontact->getphone()]); 
+        $req->execute(['name'=>$newContact->getName(), 'email'=>$newContact->getEmail(), 'phone_number'=>$newContact->getPhone()]); 
 }
 //gestion de la commande delete
 public function delete($id)
@@ -54,10 +54,10 @@ $db = DBConnect::getPDO();
     $req->execute(['id'=>$id]);
 }
 //gestion de la commande modify
-public function modify($modcontact) {
+public function modify($modContact) {
     $db = DBConnect::getPDO();
     $req = $db->prepare("UPDATE `contact` SET `name`=:name, `email`=:email, `phone_number`=:phone_number WHERE user_id = :id");
-    $req->execute(['id'=>$modcontact->getid(), 'name'=>$modcontact->getname(), 'email'=>$modcontact->getemail(), 'phone_number'=>$modcontact->getphone()]);
+    $req->execute(['id'=>$modContact->getID(), 'name'=>$modContact->getName(), 'email'=>$modContact->getEmail(), 'phone_number'=>$modContact->getPhone()]);
 
 }
 }

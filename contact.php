@@ -1,49 +1,49 @@
 <?php
 //declaration de la classe contact
-class contact
+class Contact
 {
 //declaration des variables du contact
-    private int $userid;
-    private string $contactname;
-    private string $contactemail;
-    private string $contactphone;
+    private int $userID;
+    private string $contactName;
+    private string $contactEmail;
+    private string $contactPhone;
 //accesseur
     public function getID(): ?int
         {
-        return $this->userid;
+        return $this->userID;
         }
-    public function getname(): ?string
+    public function getName(): ?string
         {   
-        return $this->contactname;}
-    public function getemail(): ?string
+        return $this->contactName;}
+    public function getEmail(): ?string
         {   
-        return $this->contactemail;}
-    public function getphone(): ?string
+        return $this->contactEmail;}
+    public function getPhone(): ?string
         {   
-        return $this->contactphone;}
+        return $this->contactPhone;}
 
 //mutateurs
-    Public function setID(?int $userid):void
+    Public function setID(?int $userID):void
     {
-        $this->userid = $userid;
+        $this->userID = $userID;
     }
 
-    Public function setname(?string $contactname):void
+    Public function setName(?string $contactName):void
     {
-        $this->contactname = $contactname;
+        $this->contactName = $contactName;
     }
-    Public function setemail(?string $contactemail):void
+    Public function setEmail(?string $contactEmail):void
     {
-        $this->contactemail = $contactemail;
+        $this->contactEmail = $contactEmail;
     }
-    Public function setphone(?string $contactphone):void
+    Public function setPhone(?string $contactPhone):void
     {
-    $this->contactphone = $contactphone;
+    $this->contactPhone = $contactPhone;
     }
 //concatenation en string
     public function toString(): string
     {
-        return 'contact n°' .' ' . $this->userid . " : " . "Nom : " . $this->contactname . " " . "Email : " . $this->contactemail . " " . "Tel : " . $this->contactphone;
+        return 'Contact n°' .' ' . $this->userID . " : " . "Nom : " . $this->contactName . " " . "Email : " . $this->contactEmail . " " . "Tel : " . $this->contactPhone;
 
     }
 }
