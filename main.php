@@ -6,43 +6,43 @@ require_once 'commandes.php';
 $commande=new command;
 $manager=new ContactManager();
 //message a chaque commande
-while (true) {
-    $line = readline("Entrez votre commande : ");
-    echo "Vous avez saisi : $line\n";
+    while (true) {
+        $line = readline("Entrez votre commande : ");
+        echo "Vous avez saisi : $line\n";
 //commande liste    
-if (trim($line) == 'liste'||trim($line) == 'list') {
+    if (trim($line) == 'liste'||trim($line) == 'list') {
     $commande->list();
 }
 //commande detail
-elseif (preg_match('/^detail (\d+)$/', $line , $match)) {
+    elseif (preg_match('/^detail (\d+)$/', $line , $match)) {
     
-$commande->detail((int)($match[1]));
+        $commande->detail((int)($match[1]));
 }
-elseif (preg_match('/^(ajouter||add) ([^,]+),\s*([^,]+),\s*([^,]+)$/', $line , $match)) {
-$newcontact = new contact();
-$newcontact->setname($match[2]);
-$newcontact->setemail($match[3]);
-$newcontact->setphone($match[4]);
-$manager->create($newcontact);
-echo "nouvel utilisateur créé \n";
+    elseif (preg_match('/^(ajouter||add) ([^,]+),\s*([^,]+),\s*([^,]+)$/', $line , $match)) {
+        $newcontact = new contact();
+        $newcontact->setname($match[2]);
+        $newcontact->setemail($match[3]);
+        $newcontact->setphone($match[4]);
+        $manager->create($newcontact);
+        echo "nouvel utilisateur créé \n";
 }
 //commande effacer
-elseif (preg_match('/^(effacer|delete) (\d+)$/', $line, $match)){
-$commande->delete((int)($match[2]));
+    elseif (preg_match('/^(effacer|delete) (\d+)$/', $line, $match)){
+        $commande->delete((int)($match[2]));
 
 }
 //commande aide
-elseif (trim($line) == 'aide'||trim($line) == 'help') {
-$commande->help();  }
+    elseif (trim($line) == 'aide'||trim($line) == 'help') {
+        $commande->help();  }
 
 
 
 //commande modifier
-elseif (preg_match('/^(modifier|modify) (\d+)$/', $line, $match)){
-$commande->modify((int)($match[2]));
+    elseif (preg_match('/^(modifier|modify) (\d+)$/', $line, $match)){
+        $commande->modify((int)($match[2]));
 }
 //message d'erreur si la commande n'est pas parmi les cas prevus
-else {
+    else {
     echo "Cette commande n'existe pas, tapez aide pour voir les commande valides\n
 This command does not exist, type help to see valid commands\n\n";
 }
