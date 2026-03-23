@@ -9,18 +9,21 @@ class Contact
     private string $contactPhone;
 //accesseur
     public function getID(): ?int
-        {
+    {
         return $this->userID;
-        }
+    }
     public function getName(): ?string
-        {   
-        return $this->contactName;}
+    {   
+        return $this->contactName;
+    }
     public function getEmail(): ?string
-        {   
-        return $this->contactEmail;}
+    {   
+        return $this->contactEmail;
+    }
     public function getPhone(): ?string
-        {   
-        return $this->contactPhone;}
+    {   
+        return $this->contactPhone;
+    }
 
 //mutateurs
     Public function setID(?int $userID):void
@@ -44,6 +47,5 @@ class Contact
     public function toString(): string
     {
         return 'Contact n°' .' ' . $this->userID . " : " . "Nom : " . $this->contactName . " " . "Email : " . $this->contactEmail . " " . "Tel : " . $this->contactPhone;
-
     }
 }
